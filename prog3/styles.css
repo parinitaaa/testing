@@ -1,0 +1,93 @@
+body{
+font-family:Arial;
+background:#f4f4f4;
+margin:0;
+}
+
+.page{
+width:90%;
+margin:auto;
+background:#fff;
+padding:20px;
+}
+
+/* HEADINGS */
+.college-header{
+background:#0b5ed7;
+color:#fff;
+text-align:center;
+padding:8px;
+}
+
+.main-title{text-align:center;}
+
+.task-title{
+background:#eee;
+padding:5px;
+margin-top:15px;
+}
+
+.output-bar{
+background:#000;
+color:#fff;
+padding:5px;
+}
+
+/* FLOAT */
+.float-area img{
+width:120px;
+height:100px;
+margin:10px;
+}
+
+.left{float:left;}
+.right{float:right;}
+.clear{clear:both;}
+
+/* FLEXBOX */
+.flex{
+display:flex;
+gap:15px;
+flex-wrap:wrap;
+}
+
+.card{
+width:200px;
+padding:10px;
+border:1px solid #ccc;
+text-align:center;
+}
+
+/* GRID */
+.grid{
+display:grid;
+grid-template-columns:1fr 2fr 1fr;
+gap:10px;
+}
+
+.header{
+grid-column:1/4;
+background:#0b5ed7;
+color:#fff;
+text-align:center;
+padding:8px;
+}
+
+.sidebar,.aside{background:#ddd;padding:10px;}
+.content{background:#bbb;padding:10px;}
+
+.box{
+color:#fff;
+padding:15px;
+text-align:center;
+}
+
+.red{background:red;}
+.blue{background:blue;}
+
+/* FOOTER */
+.footer{
+background:#eee;
+padding:10px;
+margin-top:15px;
+}
