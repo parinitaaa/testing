@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Programming Language Voting</title>
+
+<style>
+body{font-family:Arial;
+    background:#f4f4f4;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    margin:0}
+.c{background:#fff;padding:25px;border-radius:10px;width:400px;text-align:center;box-shadow:0 0 10px #0003}
+.l{display:flex;justify-content:space-between;margin:10px 0;padding:10px;background:#eee;border-radius:6px}
+button{border:0;background:#07f;color:#fff;padding:5px 10px;border-radius:5px;cursor:pointer}
+button:hover{background:#05b}
+.r{font-weight:bold;margin:5px 0}
+</style>
+
+</head>
+
+<body>
+
+<div class="c">
+<h1>Vote for Best Programming Language</h1>
+<div id="L"></div>
+<h2>Results</h2>
+<div id="R"></div>
+</div>
+
+<script>
+let a=[["JavaScript",0],["Python",0],["Java",0],["C++",0],["Go",0]],
+L=document.getElementById("L"),
+R=document.getElementById("R");
+
+function d(){
+L.innerHTML=a.map((x,i)=>`<div class=l>${x[0]}
+    <button onclick=v(${i})>Vote</button></div>`).join("");
+R.innerHTML=a.map(x=>`<div class=r>${x[0]} : ${x[1]} votes</div>`).join("");
+}
+v=i=>(a[i][1]++,d());
+d();
+</script>
+
+</body>
+</html>

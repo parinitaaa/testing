@@ -1,0 +1,29 @@
+body {
+    font-family: Arial;
+    display: flex;              /* center everything */
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: #f5f5f5;       /* light background */
+}
+
+/* wrap your content inside a div (like .container in HTML) */
+.container {
+    text-align: center;
+    background: white;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+.option {
+    margin: 5px 0;
+    text-align: left;          /* keeps options aligned nicely */
+}
+
+button {
+    margin-top: 10px;
+    padding: 5px 10px;
+    cursor: pointer;
+}

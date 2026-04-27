@@ -1,0 +1,64 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #fff;
+}
+
+.container {
+    width: 800px;
+    margin: 20px auto;
+    border: 1px solid #000;
+    padding: 15px;
+}
+
+.header {
+    text-align: center;
+}
+
+.header h2 {
+   
+    font-size: 20px;
+}
+
+.header h3, .header h4 {
+    
+    text-decoration: underline;
+}
+
+.info p {
+    margin: 4px 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+table, th, td {
+    border: 1px solid #000;
+}
+
+th, td {
+    padding: 6px;
+    font-size: 14px;
+    text-align: center;
+}
+
+td:nth-child(3) {
+    text-align: left;
+}
+
+.sgpa {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.grades {
+    font-size: 13px;
+    margin-top: 10px;
+}
+
+.note {
+    font-size: 12px;
+    margin-top: 10px;
+}

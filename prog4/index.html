@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Student Result Analyzer</title>
+
+<style>
+  
+  table { border-collapse: collapse; margin-top: 10px; }
+  th, td { border: 1px solid black; padding: 5px; text-align: center; }
+  input { width: 60px; }
+</style>
+
+</head>
+<body>
+
+<h2>Student Result Analyzer</h2>
+
+<button onclick="setup()">Setup Students & Subjects</button>
+
+<div id="tableArea"></div>
+
+<br>
+<button onclick="calculate()">Calculate</button>
+
+<h3>Result</h3>
+<div id="result"></div>
+
+<script>
+
+let maxMarks = 100;
+
+function setup() {
+    let students = Number(prompt("Enter number of students:"));
+    let subjects = Number(prompt("Enter number of subjects:"));
+
+    let table = "<table id='marksTable'><tr><th>Student</th>";
+
+    // header
+    for (let s = 1; s <= subjects; s++) {
+        table += `<th>Sub ${s}</th>`;
+    }
+    table += "</tr>";
+
+    // rows
+    for (let i = 1; i <= students; i++) {
+        table += `<tr><td>Student ${i}</td>`;
+        for (let j = 0; j < subjects; j++) {
+            table += `<td><input type="number" max="${maxMarks}"></td>`;
+        }
+        table += "</tr>";
+    }
+
+    table += "</table>";
+
+    document.getElementById("tableArea").innerHTML = table;
+}
+
+function calculate() {
+    let rows = document.querySelectorAll("#marksTable tr");
+    let subjects = rows[0].children.length - 1;
+
+    let subjectData = [];
+
+    // initialize arrays
+    for (let i = 0; i < subjects; i++) {
+        subjectData[i] = [];
+    }
+
+    // collect marks
+    for (let i = 1; i < rows.length; i++) {
+        let inputs = rows[i].querySelectorAll("input");
+        for (let j = 0; j < subjects; j++) {
+            subjectData[j].push(Number(inputs[j].value));
+        }
+    }
+
+    function getStats(arr) {
+        let max = Math.max(...arr);
+        let min = Math.min(...arr);
+        let pass = arr.filter(x => x >= 40).length;
+        let fail = arr.length - pass;
+        return { max, min, pass, fail };
+    }
+
+    let output = "";
+
+    let totalPass = 0, totalFail = 0;
+    let totalStudents = subjectData[0].length;
+
+    // per subject stats
+    subjectData.forEach((sub, i) => {
+        let stats = getStats(sub);
+        totalPass += stats.pass;
+        totalFail += stats.fail;
+
+        output += `<b>Subject ${i + 1}:</b><br>
+        Max: ${stats.max}, Min: ${stats.min}, 
+        Passed: ${stats.pass}, Failed: ${stats.fail}<br><br>`;
+    });
+
+    let overallPass = (totalPass / (totalStudents * subjects)) * 100;
+    let overallFail = (totalFail / (totalStudents * subjects)) * 100;
+
+    output += `<b>Overall:</b><br>
+    Pass %: ${overallPass.toFixed(2)}%<br>
+    Fail %: ${overallFail.toFixed(2)}%`;
+
+    document.getElementById("result").innerHTML = output;
+}
+
+</script>
+
+</body>
+</html>
