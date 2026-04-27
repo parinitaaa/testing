@@ -5,7 +5,7 @@ const folderPath = "./"; // current folder
 
 fs.readdir(folderPath, { withFileTypes: true }, (err, items) => {
     if (err) {
-        console.log(JSON.stringify({ error: err.message }, null, 2));
+        console.log("Error reading directory:", err);
         return;
     }
 
